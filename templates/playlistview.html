@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Time
+        </th>
+        <th>
+          File
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in playlists %}
+      <tr>
+        <td>
+          {{ row['name'] }}
+        </td>
+        <td>
+          {{ row['time'] }}
+        </td>
+        <td>
+          <a href="/playlist/{{ row['location'] }}">{{ row['location'] }}</a>
+        </td>
+        <td>
+          <a href="/playlist/delete/{{ row['location'] }}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+      {% endblock %}

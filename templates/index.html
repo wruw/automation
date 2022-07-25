@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col s12">
+        <p>
+            Welcome to the WRUW automation software. Please select an option below to import your show.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m4">
+          <div class="icon-block">
+            <h5 class="center"><a href="/recording">Recording</a></h5>
+            <p class="light">Select this option if you have a fully recorded show</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h5 class="center"><a href="/playlist">Playlist</a></h5>
+            <p class="light">Select this option if you created a playlist on the Jukebox</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h5 class="center"><a href="/rotation">Rotation</a></h5>
+            <p class="light">Select this option to build, delete, or update a rotation</p>
+          </div>
+        </div>
+      </div>
+{% endblock %}

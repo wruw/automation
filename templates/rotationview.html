@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Day of Week
+        </th>
+        <th>
+          Time
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rotations %}
+      <tr>
+        <td>
+          {{ row['name'] }}
+        </td>
+        <td>
+          {{ row['day'] }}
+        </td>
+        <td>
+          {{ row['time'] }}
+        </td>
+        <td>
+          <a href="/rotation/delete/{{ row['name'] }}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+      {% endblock %}
