@@ -1,7 +1,7 @@
 # automation
 Python based automation software for WRUW-FM 91.1 Cleveland. Uses Flask for the website, mysql/sqlalchely for data storage, and powershell for file playing.
 
-##History
+## History
 Like most of the world in March of 2020, our radio statuion had to go fully remote on a very short notice. In order to stay on the air in some capacity, I started researching and playing with off the shelf radio automation software, but everything was too complicated for our usecase, and there was no easy way for our DJ's to upload their own shows to it. I was able to hack together some software and a Google Form, but this required daily interaction from my part to put shows in the right place. So eventually once I realized that 1. The pandemic wasn't going away any time soon and 2. Even if it did, having a simple (at least from the end user) automation software allowed us better programming opportunites, I wrote this.
 
 ## What the softare can actually do
