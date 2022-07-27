@@ -36,7 +36,7 @@ r = redis.Redis(host='localhost',port=6379,db=0)
 
 announcements = {
     '0000':['LegalIDs','PSA','Promos','SafeHarbor'],
-    '0030':['LegalIDs','SafeHarbor','Telethon'],
+    '0030':['LegalIDs','SafeHarbor'],
     '0100':['LegalIDs','PSA','Promos','SafeHarbor'],
     '0130':['LegalIDs','SafeHarbor'],
     '0200':['start','LegalIDs','PSA','Promos','SafeHarbor'],
@@ -163,7 +163,7 @@ def empty():
     connection.execute(prepare(sql))
 
 #for the player, grabs the next file
-def getnext():  
+def getnext():
     connection = sql_alchemy_engine.connect()
     sql = """SELECT file, override FROM queue WHERE
         queue = 1 LIMIT 1"""

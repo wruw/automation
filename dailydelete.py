@@ -13,24 +13,15 @@ connection = sql_alchemy_engine.connect()
 sql = """SELECT * FROM playlists WHERE time < subdate(current_date,1)"""
 result = connection.execute(prepare(sql))
 for row in result:
-    try:
-        os.remove(os.path.join('C:\Playlists',row['location']))
-    except:
-        pass
+    os.remove(os.path.join('C:\Playlists',row['location']))
     sql = """DELETE FROM playlists WHERE id=:id"""
     connection.execute(prepare(sql),{'id':row['id']})
 
 sql = """SELECT * FROM recordings WHERE time < subdate(current_date,1)"""
 result = connection.execute(prepare(sql))
 for row in result:
-    try:
-        os.remove(os.path.join('C:\Recordings',row['file1']))
-    except:
-        pass
+    os.remove(os.path.join('C:\Recordings',row['file1']))
     if row['file2']:
-        try:
-            os.remove(os.path.join('C:\Recordings',row['file1']))
-        except:
-            pass
+        os.remove(os.path.join('C:\Recordings',row['file1']))
     sql = """DELETE FROM recordings WHERE id=:id"""
     connection.execute(prepare(sql),{'id':row['id']})

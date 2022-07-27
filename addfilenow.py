@@ -18,8 +18,7 @@ connection = sql_alchemy_engine.connect()
 sql = """UPDATE queue SET queue=queue+1"""
 connection.execute(prepare(sql))
 path = filedialog.askopenfilename()
-if path:
-    sql = """INSERT INTO queue (queue, file, override) VALUES
-        (1, :path, 1)
-        """
-    connection.execute(prepare(sql),{'path':path})
+sql = """INSERT INTO queue (queue, file, override) VALUES
+    (1, :path, 1)
+    """
+connection.execute(prepare(sql),{'file':file, 'override':override})
