@@ -15,5 +15,6 @@ To put it simply, schedule and play shows. But it allows multiple types of shows
 ## Installation
 I currently have it written to work on Windows, but with a little work could easily run on your \*nix environment. The only reason it's on Windows is we use an Axia/Livewire setup for audio routing over IP, and the only audio drivers are for Windows. There's a requirements file that will need installed (`pip install -r requirements.txt`) and a Mysql file with the relevant tables. You also need a few directories, one for playlists and one for recordings. There is also a need to install and connect to Redis. Redis is used when in rotations or random to prevent duplicate plays of the same song or artist.
 
-## running
+## Running
 There are two parts, the web interface and the player. Set up the web interface via whatever wsgi interface you choose (current files exist for uwsgi) pointed to webapp.py. For the player, you need to keep player.py running continuously. For Windows, that requires running playerdaddy.bat (note you can't just run the python script since the only way I could figure out how to stop a file playing was to kill the script and restart it).
+In our use case, we run the robot full time on a channel on the board. So if a live programmer is at the station, then they can fade down and turn off the computer for their own show, then whenever they are finished and there is nobody after them, they can turn the robot back on and something will still be playing.
