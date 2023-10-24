@@ -22,7 +22,7 @@ sql_alchemy_engine = create_engine(
     echo = True
 )
 
-sg = sendgrid.SendGridAPIClient(api_key='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')
+sg = sendgrid.SendGridAPIClient(api_key='INSERT KEY HERE')
 
 sentry_sdk.init(
     dsn="https://63f20c25c4364fa0ab1872c17fc23e94@o116363.ingest.sentry.io/5511687",
