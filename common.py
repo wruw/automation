@@ -13,7 +13,7 @@ import time
 
 #spinitron data
 spinitron_url = "https://spinitron.com/api/spin/create-v1"
-spinitron_token = ""
+spinitron_token = os.getenv('SPINITRON_TOKEN') 
 
 r = redis.Redis()
 
