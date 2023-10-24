@@ -22,7 +22,7 @@
       {% for row in rotations %}
       <tr>
         <td>
-          {{ row['name'] }}
+          <a href="/rotation/{{ row['id'] }}">{{ row['name'] }}</a>
         </td>
         <td>
           {{ row['day'] }}
@@ -31,7 +31,7 @@
           {{ row['time'] }}
         </td>
         <td>
-          <a href="/rotation/delete/{{ row['name'] }}">Delete</a>
+          <a href="/rotation/delete/{{ row['id'] }}">Delete</a>
         </td>
       </tr>
       {% endfor %}

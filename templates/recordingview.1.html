@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Time
+        </th>
+        <th>
+          File 1
+        </th>
+        <th>
+          File 2
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in recordings %}
+      <tr>
+        <td>
+          {{ row['name'] }}
+        </td>
+        <td>
+          {{ row['time'] }}
+        </td>
+        <td>
+          <a href="/recording/{{ row['file1'] }}">{{ row['file1'] }}</a>
+        </td>
+        <td>
+          {% if row['file2'] %}
+          <a href="/recording/{{ row['file2'] }}">{{ row['file2'] }}</a>
+          {% endif %}
+        </td>
+        <td>
+          <a href="/recording/delete/{{ row['file1'] }}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+      {% endblock %}

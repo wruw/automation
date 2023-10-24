@@ -6,6 +6,7 @@ from tkinter import filedialog
 import os
 root = tk.Tk()
 root.withdraw()
+from common import *
 
 # SQL Alchemy Test
 sql_alchemy_engine = create_engine(
@@ -18,7 +19,11 @@ connection = sql_alchemy_engine.connect()
 sql = """UPDATE queue SET queue=queue+1"""
 connection.execute(prepare(sql))
 path = filedialog.askopenfilename()
-sql = """INSERT INTO queue (queue, file, override) VALUES
-    (1, :path, 1)
-    """
-connection.execute(prepare(sql),{'file':file, 'override':override})
+if path:
+    sql = """INSERT INTO queue (queue, file, override) VALUES
+        (1, :path, 1)
+        """
+    connection.execute(prepare(sql),{'path':path})
+    terminal(['audtool','--playlist-clear'])
+    findsong(sql_alchemy_engine)
+    terminal(['audtool','--playback-play'])
