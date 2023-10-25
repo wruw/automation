@@ -95,13 +95,15 @@ def rotation():
                 FROM songs WHERE location=:location
             """
             songids = c.execute(prepare(sql),{'location':l})
+            found = False
             for songid in songids:
+                found = True
                 sql = """INSERT INTO songs_rotations
                     (song_id, rotation_id) VALUES
                     (:songid, :id)
                 """
                 c.execute(prepare(sql),{'songid':songid['id'],'id':id})
-            else:
+            if not found:
                 if clean=='clean':
                     cid = 1
                 else:
@@ -150,8 +152,8 @@ def rotationdownload(id):
             song = '/mnt/share/'+song
             song = song.rstrip()
         else:
-            song = song[67:]
-            song = '/mnt/storage'+song
+            song = song[66:]
+            song = '/mnt/storage/'+song
             song = song.rstrip()
         text += song+'\n'
     return Response(text,mimetype='text/plain',headers={"Content-Disposition":"attachment;filename=rotation.m3u8"})
